@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    include:
+      - db
+
+liquibase:
+   enabled: false
+
+server:
+  port: 8081
+

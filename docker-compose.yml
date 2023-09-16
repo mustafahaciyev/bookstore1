@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  postgres:
+    container_name: bookstore
+    image: postgres
+    environment:
+      POSTGRES_USER: book
+      POSTGRES_PASSWORD: 1234
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/bookstore
+    ports:
+      - "5439:5432"
+volumes:
+  postgres:
