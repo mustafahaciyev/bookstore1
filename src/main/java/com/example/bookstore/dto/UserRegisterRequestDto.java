@@ -1,6 +1,5 @@
 package com.example.bookstore.dto;
 
-import com.example.bookstore.entity.UserType;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -10,7 +9,8 @@ import lombok.experimental.FieldDefaults;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserRegisterRequestDto {
-
+     String name;
+     String surname;
      String email;
      String password;
 

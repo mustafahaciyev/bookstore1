@@ -19,14 +19,16 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String email;
-    private String password;
-    private boolean isActive;
+    Long id;
+    String name;
+    String surname;
+    String email;
+    String password;
+    boolean isActive;
 
     @ManyToMany
-            @JoinTable(name = "users_book",
+    @JoinTable(name = "users_book",
             joinColumns = @JoinColumn(name = "users_id"),
-           inverseJoinColumns = @JoinColumn(name = "book_id"))
+            inverseJoinColumns = @JoinColumn(name = "book_id"))
     List<Book> books = new ArrayList<>();
 }

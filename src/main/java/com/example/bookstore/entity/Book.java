@@ -19,14 +19,17 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String title;
+    Long id;
+
+//    String bookName;
+    String title;
+//    String categories;
 
     @ManyToOne
-    private Author author;
+    Author author;
 
     @ManyToMany(mappedBy = "books")
-    private List<User> users = new ArrayList<>();
+    List<User> users = new ArrayList<>();
 
 
 }

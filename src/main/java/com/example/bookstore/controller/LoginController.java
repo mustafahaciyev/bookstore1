@@ -18,10 +18,6 @@ public class LoginController {
 
     private final LoginService loginService;
 
-//    @PostMapping
-//    public String postLogin(@RequestBody LoginRequestDto loginRequestDto){
-//        return userService.login(loginRequestDto);
-//    }
 
     @PostMapping
     public ResponseEntity<String> login(@RequestBody LoginRequestDto loginDto) {

@@ -1,6 +1,5 @@
 package com.example.bookstore.dto;
 
-import com.example.bookstore.entity.Author;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -9,12 +8,6 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class AuthorAddedBooksDto {
-
-    String authorName;
+public class BookResponseDto {
     String bookName;
-    String bookYear;
-    String bookTitle;
-    String bookType;
-
 }

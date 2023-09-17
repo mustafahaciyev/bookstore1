@@ -20,6 +20,7 @@ public class LoginServiceIMpl implements LoginService {
 
     @Override
     public boolean authenticateUser(String email, String password) {
+
         // Find the user or author by email
         Optional<User> userOptional = userRepository.findByEmail(email);
         Optional<Author> authorOptional = authorRepository.findByEmail(email);
@@ -34,7 +35,7 @@ public class LoginServiceIMpl implements LoginService {
             }
         } else if (authorOptional.isPresent()) {
             Author author = authorOptional.get();
-            if (password.equals(author.getPassword()) && !author.isActive()) {
+            if (password.equals(author.getPassword())) {
                 // Set isActive to true for successful login
                 author.setActive(true);
                 authorRepository.save(author);
