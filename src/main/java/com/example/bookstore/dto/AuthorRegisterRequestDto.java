@@ -14,4 +14,5 @@ public class AuthorRegisterRequestDto {
     String surname;
     String email;
     String password;
+
 }

@@ -21,9 +21,9 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-//    String bookName;
+
     String title;
-//    String categories;
+
 
     @ManyToOne
     Author author;

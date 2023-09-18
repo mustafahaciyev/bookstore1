@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
         Book existingBook = bookRepository.findByTitle(bookRequestDto.getTitle());
 
         if (existingBook == null) {
-            // Eğer kitap veritabanında yoksa, yeni bir kitap oluştur ve kullanıcıya bağla
+
             Book newBook = new Book();
             newBook.setTitle(bookRequestDto.getTitle());
             newBook.getUsers().add(user);
@@ -75,7 +75,7 @@ public class UserServiceImpl implements UserService {
             userRepository.save(user);
             bookRepository.save(newBook);
         } else {
-            // Eğer kitap veritabanında varsa, kullanıcıya bağla
+
             existingBook.getUsers().add(user);
             user.getBooks().add(existingBook);
 

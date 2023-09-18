@@ -47,9 +47,9 @@ public class AuthorServiceImpl implements AuthorService {
 
 
         Book book = new Book();
-//        book.setBookName(bookRequestDto.getBookName());
+
         book.setTitle(bookRequestDto.getTitle());
-//        book.setCategories(book.getCategories());
+
         book.setAuthor(author);
 
         bookRepository.save(book);
@@ -123,10 +123,6 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
 
-    private boolean isAuthorized(Long authorId, String email) {
-        Author author = authorRepository.findById(authorId)
-                .orElseThrow(() -> new EntityNotFoundException("Author not found"));
-        return author.getEmail().equals(email) && author.isActive();
-    }
+
 
 }

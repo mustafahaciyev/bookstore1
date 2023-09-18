@@ -21,7 +21,4 @@ public interface AuthorService {
 
     boolean isAuthorActive(Long authorId);
 
-//    boolean authenticateAuthor(Long authorId, BookRequestDto bookRequestDto);
-
-//    String authorAddedBooks(AuthorAddedBooksDto authorAddedBooksDto);
 }

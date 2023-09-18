@@ -14,5 +14,4 @@ public class UserRegisterRequestDto {
      String email;
      String password;
 
-
 }

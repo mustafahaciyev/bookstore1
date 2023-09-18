@@ -35,7 +35,7 @@ public class LoginServiceIMpl implements LoginService {
             }
         } else if (authorOptional.isPresent()) {
             Author author = authorOptional.get();
-            if (password.equals(author.getPassword())) {
+            if (password.equals(author.getPassword()) && !author.isActive()) {
                 // Set isActive to true for successful login
                 author.setActive(true);
                 authorRepository.save(author);
