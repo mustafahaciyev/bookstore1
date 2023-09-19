@@ -1,5 +1,6 @@
 package com.example.bookstore.service.impl;
 
+import com.example.bookstore.config.AppConfig;
 import com.example.bookstore.dto.AuthorRegisterRequestDto;
 import com.example.bookstore.dto.BookRequestDto;
 import com.example.bookstore.entity.Author;
@@ -21,6 +22,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
+    private final AppConfig appConfig;
 
 
     @Override
@@ -46,9 +48,7 @@ public class AuthorServiceImpl implements AuthorService {
                 .orElseThrow(() -> new EntityNotFoundException("Author not found"));
 
 
-        Book book = new Book();
-
-        book.setTitle(bookRequestDto.getTitle());
+        Book book = appConfig.getMapper().map(bookRequestDto, Book.class);
 
         book.setAuthor(author);
 

@@ -1,0 +1,84 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: your_name
+      changes:
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: bookName
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: categories
+                  type: VARCHAR(255)
+              - column:
+                  name: bookYear
+                  type: VARCHAR(4)
+
+  - changeSet:
+      id: 2
+      author: your_name
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: Book
+            baseColumnNames: author_id
+            referencedTableName: Author
+            referencedColumnNames: id
+            constraintName: FK_Book_Author
+            onDelete: CASCADE
+
+  - changeSet:
+      id: 3
+      author: your_name
+      changes:
+        - createTable:
+            tableName: users_book
+            columns:
+              - column:
+                  name: users_id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: book_id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+
+  - changeSet:
+      id: 4
+      author: your_name
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: users_book
+            baseColumnNames: users_id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: FK_users_book_users
+            onDelete: CASCADE
+
+  - changeSet:
+      id: 5
+      author: your_name
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: users_book
+            baseColumnNames: book_id
+            referencedTableName: Book
+            referencedColumnNames: id
+            constraintName: FK_users_book_book
+            onDelete: CASCADE

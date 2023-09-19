@@ -21,14 +21,14 @@ public class LoginServiceIMpl implements LoginService {
     @Override
     public boolean authenticateUser(String email, String password) {
 
-        // Find the user or author by email
+
         Optional<User> userOptional = userRepository.findByEmail(email);
         Optional<Author> authorOptional = authorRepository.findByEmail(email);
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             if (password.equals(user.getPassword()) && !user.isActive()) {
-                // Set isActive to true for successful login
+
                 user.setActive(true);
                 userRepository.save(user);
                 return true;
@@ -36,7 +36,7 @@ public class LoginServiceIMpl implements LoginService {
         } else if (authorOptional.isPresent()) {
             Author author = authorOptional.get();
             if (password.equals(author.getPassword()) && !author.isActive()) {
-                // Set isActive to true for successful login
+
                 author.setActive(true);
                 authorRepository.save(author);
                 return true;

@@ -1,9 +1,7 @@
 package com.example.bookstore.service.impl;
 
 import com.example.bookstore.config.AppConfig;
-import com.example.bookstore.config.UserMapper;
 import com.example.bookstore.dto.BookRequestDto;
-import com.example.bookstore.dto.LoginRequestDto;
 import com.example.bookstore.dto.UserRegisterRequestDto;
 import com.example.bookstore.entity.Book;
 import com.example.bookstore.entity.User;
@@ -13,12 +11,9 @@ import com.example.bookstore.repo.UserRepository;
 import com.example.bookstore.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +22,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final BookRepository bookRepository;
     private final AppConfig appConfig;
-    private final UserMapper userMapper;
+
 
 
     @Override
@@ -36,7 +31,7 @@ public class UserServiceImpl implements UserService {
         user.setName(userRegisterRequestDto.getName());
         user.setSurname(userRegisterRequestDto.getSurname());
         user.setEmail(userRegisterRequestDto.getEmail());
-        // Hash and set the password
+
         user.setPassword(userRegisterRequestDto.getPassword());
         user.setActive(false);
         userRepository.save(user);
@@ -68,7 +63,7 @@ public class UserServiceImpl implements UserService {
         if (existingBook == null) {
 
             Book newBook = new Book();
-            newBook.setTitle(bookRequestDto.getTitle());
+            newBook.setBookName(bookRequestDto.getBookName());
             newBook.getUsers().add(user);
             user.getBooks().add(newBook);
 

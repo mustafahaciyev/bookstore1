@@ -10,6 +10,9 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BookRequestDto {
 
+    String bookName;
     String title;
+    String categories;
+    String bookYear;
 
 }

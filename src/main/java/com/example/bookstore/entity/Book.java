@@ -22,8 +22,10 @@ public class Book {
     Long id;
 
 
+    String bookName;
     String title;
-
+    String categories;
+    String bookYear;
 
     @ManyToOne
     Author author;
