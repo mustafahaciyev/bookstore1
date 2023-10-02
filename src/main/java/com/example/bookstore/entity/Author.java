@@ -1,5 +1,6 @@
 package com.example.bookstore.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -26,6 +27,7 @@ public class Author {
     boolean isActive;
 
     @OneToMany(mappedBy = "author")
+    @JsonIgnore
     List<Book> books = new ArrayList<>();
 
 
