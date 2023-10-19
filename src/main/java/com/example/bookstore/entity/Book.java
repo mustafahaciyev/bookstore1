@@ -23,6 +23,8 @@ public class Book {
 
 
     String bookName;
+
+    @Column(unique = true)
     String title;
     String categories;
     String bookYear;

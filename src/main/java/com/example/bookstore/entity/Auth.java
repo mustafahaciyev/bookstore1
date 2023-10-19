@@ -5,9 +5,7 @@ import jakarta.validation.constraints.Email;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -15,24 +13,27 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "users")
-public class User {
+public class Auth {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
+
     String name;
     String surname;
 
+    @Column(unique = true)
     @Email
     String email;
     String password;
 
 
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(name = "auth_authority",
+            joinColumns = @JoinColumn(name = "auth_id"),
+            inverseJoinColumns = @JoinColumn(name = "authority_id"))
+    List<Authority> authorities;
 
-    @ManyToMany
-    @JoinTable(name = "users_book",
-            joinColumns = @JoinColumn(name = "users_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id"))
-    List<Book> books = new ArrayList<>();
 }

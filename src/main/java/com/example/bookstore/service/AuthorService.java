@@ -9,7 +9,7 @@ import java.nio.file.AccessDeniedException;
 import java.util.List;
 
 public interface AuthorService {
-    void registerAuthor(AuthorRegisterRequestDto authorRegisterRequestDto);
+//    void registerAuthor(AuthorRegisterRequestDto authorRegisterRequestDto);
 
     void saveBook(Long authorId, BookRequestDto bookRequestDto) throws UnauthorizedException;
 
@@ -19,6 +19,6 @@ public interface AuthorService {
 
     List<Book> getAllBooks(Long authorId) throws UnauthorizedException;
 
-    boolean isAuthorActive(Long authorId);
+//    boolean isAuthorActive(Long authorId);
 
 }

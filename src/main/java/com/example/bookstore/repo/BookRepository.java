@@ -13,6 +13,6 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book,Long>, JpaSpecificationExecutor<Book> {
 
-    Book findByTitle(String title);
+    List<Book> findByTitle(String title);
 
 }

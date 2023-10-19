@@ -1,10 +1,8 @@
 package com.example.bookstore.controller;
 
-import com.example.bookstore.dto.BookRequestDto;
 import com.example.bookstore.entity.Book;
 import com.example.bookstore.service.BookService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

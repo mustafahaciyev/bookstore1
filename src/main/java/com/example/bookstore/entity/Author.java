@@ -2,6 +2,7 @@ package com.example.bookstore.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -22,9 +23,14 @@ public class Author {
     Long id;
     String name;
     String surname;
+
+
+    @Email
     String email;
     String password;
-    boolean isActive;
+
+
+
 
     @OneToMany(mappedBy = "author")
     @JsonIgnore
